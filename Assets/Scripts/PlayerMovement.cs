@@ -24,11 +24,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            moveSpeed = 6f;
+            moveSpeed = 10f;
         }
         else
         {
-            moveSpeed = 4f;
+            moveSpeed = 7f;
         }
         MInput();
 

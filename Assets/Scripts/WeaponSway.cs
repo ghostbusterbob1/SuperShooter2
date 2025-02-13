@@ -19,7 +19,7 @@ public class WeaponSway : MonoBehaviour
     [SerializeField] private float fallSwayAmount = 5f; // Added fall sway amount
 
     private Recoi recoilScript;
-    private Rigidbody playerRigidbody;
+    public Rigidbody playerRigidbody;
 
     void Start()
     {
@@ -30,18 +30,17 @@ public class WeaponSway : MonoBehaviour
         horizontalRandomOffset = Random.Range(0f, Mathf.PI * 2);
 
         recoilScript = GetComponent<Recoi>();
-        playerRigidbody = GetComponentInParent<Rigidbody>();
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftShift)) 
         {
-            bobbingSpeed = 20f;
+            bobbingSpeed = 23f;
         }
         else
         {
-            bobbingSpeed = 15f;
+            bobbingSpeed = 18f;
         }
 
         float horizontal = Input.GetAxis("Horizontal");
