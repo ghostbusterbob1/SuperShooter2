@@ -16,6 +16,7 @@ public class WeaponSway : MonoBehaviour
 
     [SerializeField] private float swaysmooth = 6f;
     [SerializeField] private float swayamount = 2f;
+    [SerializeField] private float fallSwayAmount = 5f; // Added fall sway amount
 
     private Recoi recoilScript;
     private Rigidbody playerRigidbody;
@@ -68,13 +69,17 @@ public class WeaponSway : MonoBehaviour
         Quaternion recoilRotOffset = recoilScript != null ? recoilScript.GetRecoilRotation() : Quaternion.identity;
 
         Vector3 fallEffect = Vector3.zero;
-
+        Quaternion fallRotation = Quaternion.identity; 
         if (playerRigidbody != null && playerRigidbody.velocity.y < -1f)
         {
-            fallEffect = new Vector3(0f, Mathf.Abs(playerRigidbody.velocity.y) * 0.05f, 0f);
+            float fallIntensity = Mathf.Abs(playerRigidbody.velocity.y);
+            fallEffect = new Vector3(0f, fallIntensity * 0.05f, 0f);
+            
+            float fallTilt = Mathf.Sin(Time.time * 5f) * fallSwayAmount * (fallIntensity * 0.02f);
+            fallRotation = Quaternion.Euler(fallTilt, 0f, fallTilt * 0.5f);
         }
 
         transform.localPosition = Vector3.Lerp(transform.localPosition, swayPosition + recoilOffset + fallEffect, Time.deltaTime * 5);
-        transform.localRotation = Quaternion.Slerp(transform.localRotation, swayRotation * recoilRotOffset, swaysmooth * Time.deltaTime);
+        transform.localRotation = Quaternion.Slerp(transform.localRotation, swayRotation * recoilRotOffset * fallRotation, swaysmooth * Time.deltaTime);
     }
 }

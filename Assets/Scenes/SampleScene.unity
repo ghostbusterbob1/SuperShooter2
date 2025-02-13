@@ -831,9 +831,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
 --- !u!114 &856126905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2172,6 +2172,7 @@ MonoBehaviour:
   midpoint: {x: 0, y: 0, z: 0}
   swaysmooth: 6
   swayamount: 2
+  fallSwayAmount: 5
 --- !u!1001 &2146985589
 PrefabInstance:
   m_ObjectHideFlags: 0
