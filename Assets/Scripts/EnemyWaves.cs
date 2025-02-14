@@ -7,7 +7,7 @@ public class EnemyWaves : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject enemy;
     [SerializeField] Transform enemySpawn;
-    public GameObject[] enemies;
+    public List<GameObject> enemies = new List<GameObject>();
     public bool waveOver;
     void Start()
     {
@@ -17,6 +17,7 @@ public class EnemyWaves : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        WaveOver(); 
         WaveStart();
 
     }
@@ -33,6 +34,12 @@ public class EnemyWaves : MonoBehaviour
 
     void WaveOver()
     {
-       waveOver = true; 
+        
+            if (enemies.Count == 0)
+            {
+                waveOver = true;
+            }
+        
+
     }
 }
