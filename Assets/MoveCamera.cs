@@ -6,6 +6,7 @@ public class MoveCamera : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform cameraPos;
+    public GameObject camera;
     void Start()
     {
         
@@ -14,6 +15,6 @@ public class MoveCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = cameraPos.position;
+        camera. transform.position = cameraPos.position;
     }
 }
