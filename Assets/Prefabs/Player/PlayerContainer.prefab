@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33601104205300257}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -684,7 +684,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7173815278906741782, guid: e7461e3cb4dfd384ea54841be167ca84,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2188172049986757187}
+      addedObject: {fileID: 9071333505169434782}
   m_SourcePrefab: {fileID: 100100000, guid: e7461e3cb4dfd384ea54841be167ca84, type: 3}
 --- !u!1 &2781629354208367273 stripped
 GameObject:
@@ -712,7 +712,7 @@ MonoBehaviour:
   swayamount: 2
   fallSwayAmount: 5
   playerRigidbody: {fileID: 4683736599973843683}
---- !u!114 &2188172049986757187
+--- !u!114 &9071333505169434782
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -725,11 +725,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 4282108913341644925}
-  recoilX: -20
+  recoilX: -50
   recoilY: 20
   recoilZ: 30
   kickBackZ: 0.2
-  snappiness: 5
+  snappiness: 0
   returnAmount: 20
 --- !u!4 &3301566805580171283 stripped
 Transform:
