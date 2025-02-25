@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class EnemyWaves : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
     [SerializeField] List<Transform> enemySpawns; // List of spawn points
+    
     public List<GameObject> enemies = new List<GameObject>();
     public bool waveOver = true;
     public int enemiesPerWave = 5;
+    public Text waveCount;
     private int waveNumber = 0;
 
     void Update()
@@ -21,6 +26,7 @@ public class EnemyWaves : MonoBehaviour
         waveNumber++;
         waveOver = false;
         enemies.Clear();
+        waveCount.text = "Wave: " + waveNumber.ToString(); 
 
         int spawnIndex = 0; // Track which spawn point to use
 
