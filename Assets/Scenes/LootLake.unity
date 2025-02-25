@@ -2766,7 +2766,7 @@ GameObject:
   - component: {fileID: 1032596845}
   - component: {fileID: 1032596847}
   - component: {fileID: 1032596846}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4036,7 +4036,7 @@ GameObject:
   - component: {fileID: 1438288965}
   - component: {fileID: 1438288967}
   - component: {fileID: 1438288966}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4276,7 +4276,7 @@ GameObject:
   - component: {fileID: 1512123196}
   - component: {fileID: 1512123198}
   - component: {fileID: 1512123197}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6544,7 +6544,7 @@ GameObject:
   - component: {fileID: 2134428736}
   - component: {fileID: 2134428738}
   - component: {fileID: 2134428737}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6560,7 +6560,7 @@ Transform:
   m_GameObject: {fileID: 2134428735}
   serializedVersion: 2
   m_LocalRotation: {x: -0.012094189, y: -0.0860808, z: 0.0010450339, w: 0.9962143}
-  m_LocalPosition: {x: -32.37, y: -8.72, z: 6.57}
+  m_LocalPosition: {x: -30.98, y: -8.72, z: 7.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
