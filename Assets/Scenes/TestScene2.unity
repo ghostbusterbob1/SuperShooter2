@@ -1263,6 +1263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPos: {fileID: 1199630437}
+  camera: {fileID: 0}
 --- !u!1 &1251208018
 GameObject:
   m_ObjectHideFlags: 0
