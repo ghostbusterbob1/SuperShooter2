@@ -4,42 +4,50 @@ using UnityEngine;
 
 public class EnemyWaves : MonoBehaviour
 {
-    // Start is called before the first frame update
-    [SerializeField] GameObject enemy;
-    [SerializeField] Transform enemySpawn;
+    [SerializeField] GameObject enemyPrefab;
+    [SerializeField] List<Transform> enemySpawns; // List of spawn points
     public List<GameObject> enemies = new List<GameObject>();
-    public bool waveOver;
-    void Start()
-    {
-        
-    }
+    public bool waveOver = true;
+    public int enemiesPerWave = 5;
+    private int waveNumber = 0;
 
-    // Update is called once per frame
     void Update()
     {
-        WaveOver(); 
-        WaveStart();
-
+        CheckWaveStatus();
     }
 
-    void WaveStart()
+    void StartWave()
     {
+        waveNumber++;
+        waveOver = false;
+        enemies.Clear();
 
-        if (waveOver == true)
+        int spawnIndex = 0; // Track which spawn point to use
+
+        for (int i = 0; i < enemiesPerWave; i++)
         {
-            Instantiate(enemy, enemySpawn.position, enemySpawn.rotation);
+            Transform spawnPoint = enemySpawns[spawnIndex]; // Use spawn point in order
+            GameObject newEnemy = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+            enemies.Add(newEnemy);
+
+            spawnIndex = (spawnIndex + 1) % enemySpawns.Count; // Cycle through spawn points
         }
-       
     }
 
-    void WaveOver()
+    void CheckWaveStatus()
     {
-        
-            if (enemies.Count == 0)
-            {
-                waveOver = true;
-            }
-        
+        enemies.RemoveAll(enemy => enemy == null || !enemy.activeInHierarchy);
 
+        if (enemies.Count == 0 && !waveOver)
+        {
+            waveOver = true;
+            StartCoroutine(StartNextWave());
+        }
+    }
+
+    IEnumerator StartNextWave()
+    {
+        yield return new WaitForSeconds(3f);
+        StartWave();
     }
 }
