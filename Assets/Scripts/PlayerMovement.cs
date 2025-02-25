@@ -10,14 +10,20 @@ public class PlayerMovement : MonoBehaviour
     private float verticalInput;
     private Vector3 moveDir;
     private Rigidbody rb;
+    public Camera camera;
+    private float targetFOV;
+    private float fovSmoothSpeed = 10f; // Adjust speed as needed
 
     public LayerMask groundMask;
     public bool isgrounded;
+    Transform t;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
+
+        t = transform;
     }
 
     private void Update()
@@ -25,14 +31,17 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = 10f;
+            targetFOV = 80f;
         }
         else
         {
             moveSpeed = 7f;
+            targetFOV = 60f;
+
         }
         MInput();
 
-
+        Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFOV, Time.deltaTime * fovSmoothSpeed);
         MovePlayer();
         IsGrounded();   
 
