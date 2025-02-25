@@ -6,6 +6,7 @@ public class WeaponShoot : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject muzzleFlash;
+    [SerializeField] Camera camera;
     void Start()
     {
         
@@ -27,7 +28,7 @@ public class WeaponShoot : MonoBehaviour
         StartCoroutine(WaitFlash(0.2f));
 
         RaycastHit hit; 
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 15f, layerMask))
+        if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, 15f, layerMask))
         {
             Destroy(hit.transform.gameObject);  
         }
