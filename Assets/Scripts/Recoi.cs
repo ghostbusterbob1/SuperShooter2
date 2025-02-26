@@ -7,6 +7,8 @@ public class Recoi : MonoBehaviour
     Vector3 currentRotation, targetRotation;
     Vector3 currentPosition, targetPosition;
     public Transform cam;
+    [SerializeField] GameObject gun;
+    [SerializeField] GameObject ADSTarget;
 
     [SerializeField] float recoilX;
     [SerializeField] float recoilY;
@@ -43,6 +45,11 @@ public class Recoi : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             recoil();
+        }
+
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            gun.transform.position = Vector3.Lerp(gun.transform.position, ADSTarget.transform.position, Time.deltaTime * 10f);
         }
     }
 
