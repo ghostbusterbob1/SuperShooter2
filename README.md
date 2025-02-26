@@ -3,5 +3,4 @@ In de 3D arcade shooter Super Shooter vecht de speler tegen een waves van enemie
 
 
 De zombies verschillen in hp omdat het allemaal verschillende zijn: Melee, Brute en ranger. De melee heeft 100 hp, de Brute heeft 300 hp en de Ranger heeft 75 hp. De gun zelf doet 15. Je kan je wapen in de loop van de game upgraden waardoor hij sterker wordt. De Melee en Brute valt aan van dichtbij. De ranger daarintegen schiet vanaf afstand.
-
-![Uploading kaas(1).gif…]()
+![Uploading Fd.gif…]()
