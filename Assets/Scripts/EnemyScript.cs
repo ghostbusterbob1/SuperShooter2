@@ -15,6 +15,13 @@ public class EnemyScript : MonoBehaviour
     public float lifeTime = 5f;
     Transform firePoint;
 
+    public float jumpForce = 10f; 
+    public float jumpCooldown = 3f; 
+    public float jumpChance = 0.3f;
+    private bool canJump = true;
+    public Rigidbody rb; 
+
+
 
     private float timer;
     void Start()
@@ -29,15 +36,24 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(player.transform.position); 
-
+        agent.SetDestination(player.transform.position);
         transform.LookAt(player.transform.position);
-        if (Time.time > timer) 
+
+        if (Time.time > timer)
         {
             Shoot();
             timer = Time.time + 1f / fireRate;
         }
+
+        if (canJump && Vector3.Distance(transform.position, player.transform.position) < 10f)
+        {
+            if (Random.value < jumpChance) 
+            {
+                JumpTowardsPlayer();
+            }
+        }
     }
+
 
     private void Shoot()
     {
@@ -55,5 +71,28 @@ public class EnemyScript : MonoBehaviour
 
 
     }
+
+    void JumpTowardsPlayer()
+    {
+        canJump = false;
+        agent.enabled = false;
+
+
+        Vector3 jumpDirection = (player.transform.position - transform.position).normalized;
+        jumpDirection.y = 1f; 
+
+        rb.AddForce(jumpDirection * jumpForce, ForceMode.Impulse);
+
+        StartCoroutine(ResetJump());
+    }
+
+    IEnumerator ResetJump()
+    {
+        yield return new WaitForSeconds(jumpCooldown);
+        agent.isStopped = false;
+        canJump = true;
+    }
+
+
 
 }

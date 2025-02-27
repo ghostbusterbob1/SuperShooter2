@@ -823,6 +823,12 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1879590312 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4870268915060742212, guid: f570e875b4de25647b90612622b97788,
+    type: 3}
+  m_PrefabInstance: {fileID: 3218355216732833232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1961468693
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,11 +1318,57 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerContainer
       objectReference: {fileID: 0}
+    - target: {fileID: 4732835691655778725, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99952614
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732835691655778725, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.030782234
+      objectReference: {fileID: 0}
+    - target: {fileID: 4732835691655778725, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -3.528
+      objectReference: {fileID: 0}
+    - target: {fileID: 4938287336954815208, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999436
+      objectReference: {fileID: 0}
+    - target: {fileID: 4938287336954815208, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.01062597
+      objectReference: {fileID: 0}
+    - target: {fileID: 4938287336954815208, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -1.218
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071333505169434782, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 3218355216732833234}
+    - target: {fileID: 9071333505169434782, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: ADSTarget
+      value: 
+      objectReference: {fileID: 1879590312}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f570e875b4de25647b90612622b97788, type: 3}
+--- !u!1 &3218355216732833234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2781629354208367273, guid: f570e875b4de25647b90612622b97788,
+    type: 3}
+  m_PrefabInstance: {fileID: 3218355216732833232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8305100273798358465
 PrefabInstance:
   m_ObjectHideFlags: 0

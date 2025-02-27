@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6291638834385980420}
   - component: {fileID: 3256367758549549396}
   - component: {fileID: 1396284830043333133}
+  - component: {fileID: 1986025709937412384}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -147,6 +148,37 @@ MonoBehaviour:
   fireRate: 1
   projectileSpeed: 50
   lifeTime: 5
+  jumpForce: 7
+  jumpCooldown: 3
+  jumpChance: 0.3
+  rb: {fileID: 1986025709937412384}
+--- !u!54 &1986025709937412384
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479380807119550753}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &7511672776619645044
 PrefabInstance:
   m_ObjectHideFlags: 0
