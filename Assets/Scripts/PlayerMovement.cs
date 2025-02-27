@@ -91,7 +91,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isgrounded)
         {
-            float maxAirSpeed = moveSpeed * 1f; // Adjust as needed
+            float maxAirSpeed = moveSpeed * 1f; 
             Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 
             if (horizontalVelocity.magnitude > maxAirSpeed)

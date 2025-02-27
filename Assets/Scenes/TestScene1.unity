@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 1035924740}
   - component: {fileID: 1035924739}
   - component: {fileID: 1035924738}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -586,7 +586,7 @@ GameObject:
   - component: {fileID: 1234550810}
   - component: {fileID: 1234550809}
   - component: {fileID: 1234550808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 1961468697}
   - component: {fileID: 1961468696}
   - component: {fileID: 1961468695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1369,6 +1369,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071333505169434782, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: recoilX
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 9071333505169434782, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: kickBackZ
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
