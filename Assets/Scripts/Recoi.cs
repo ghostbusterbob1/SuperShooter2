@@ -13,7 +13,6 @@ public class Recoi : MonoBehaviour
     [SerializeField] float recoilX;
     [SerializeField] float recoilY;
     [SerializeField] float recoilZ;
-
     [SerializeField] float kickBackZ;
 
     public float snappiness, returnAmount;
@@ -23,6 +22,10 @@ public class Recoi : MonoBehaviour
     private Vector3 initialPosition;
     private Quaternion initialRotation;
 
+    [SerializeField] bool isAutomatic = false;  
+    [SerializeField] float fireRate = 0.1f;  
+    private bool isShooting = false;  
+
     void Start()
     {
         initialPosition = transform.localPosition;
@@ -31,29 +34,48 @@ public class Recoi : MonoBehaviour
 
     void Update()
     {
-        // Smoothly return to original rotation
         targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, Time.deltaTime * returnAmount);
         currentRotation = Vector3.Slerp(currentRotation, targetRotation, Time.fixedDeltaTime * snappiness);
         recoilRotationOffset = Quaternion.Euler(currentRotation);
 
-        // Smoothly return to original position
         targetPosition = Vector3.Lerp(targetPosition, Vector3.zero, Time.deltaTime * returnAmount);
         currentPosition = Vector3.Lerp(currentPosition, targetPosition, Time.fixedDeltaTime * snappiness);
         recoilPositionOffset = currentPosition;
 
-        // Apply these values in WeaponSway script (combined with sway)
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (isAutomatic)
         {
-            recoil();
+            if (Input.GetKey(KeyCode.Mouse0) && !isShooting)
+            {
+                StartCoroutine(AutomaticFire());
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                ApplyRecoil();
+            }
         }
 
+        // ADS Movement
         if (Input.GetKey(KeyCode.Mouse1))
         {
             gun.transform.position = Vector3.Lerp(gun.transform.position, ADSTarget.transform.position, Time.deltaTime * 10f);
         }
     }
 
-    public void recoil()
+    IEnumerator AutomaticFire()
+    {
+        isShooting = true;
+        while (Input.GetKey(KeyCode.Mouse0))
+        {
+            ApplyRecoil();
+            yield return new WaitForSeconds(fireRate);
+        }
+        isShooting = false;
+    }
+
+    public void ApplyRecoil()
     {
         targetPosition -= new Vector3(0, 0, kickBackZ);
         targetRotation += new Vector3(recoilX, Random.Range(-recoilY, recoilY), Random.Range(-recoilZ, recoilZ));

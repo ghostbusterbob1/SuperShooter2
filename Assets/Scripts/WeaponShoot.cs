@@ -4,21 +4,40 @@ using UnityEngine;
 
 public class WeaponShoot : MonoBehaviour
 {
-    // Start is called before the first frame update
     [SerializeField] GameObject muzzleFlash;
     [SerializeField] Camera camera;
-    void Start()
-    {
-        
-    }
+    [SerializeField] bool isAutomatic = false;  
+    [SerializeField] float fireRate = 0.1f;  
 
-    // Update is called once per frame
+    private bool isShooting = false;  
+
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (isAutomatic)
+        {
+            if (Input.GetKey(KeyCode.Mouse0) && !isShooting)
+            {
+                StartCoroutine(AutomaticFire());
+            }
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                Shoot();
+            }
+        }
+    }
+
+    IEnumerator AutomaticFire()
+    {
+        isShooting = true;
+        while (Input.GetKey(KeyCode.Mouse0))
         {
             Shoot();
-        }    
+            yield return new WaitForSeconds(fireRate);
+        }
+        isShooting = false;
     }
 
     void Shoot()
@@ -27,10 +46,10 @@ public class WeaponShoot : MonoBehaviour
         muzzleFlash.SetActive(true);
         StartCoroutine(WaitFlash(0.2f));
 
-        RaycastHit hit; 
+        RaycastHit hit;
         if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, 15f, layerMask))
         {
-            Destroy(hit.transform.gameObject);  
+            Destroy(hit.transform.gameObject);
         }
     }
 
