@@ -6,10 +6,17 @@ public class WeaponShoot : MonoBehaviour
 {
     [SerializeField] GameObject muzzleFlash;
     [SerializeField] Camera camera;
-    [SerializeField] bool isAutomatic = false;  
-    [SerializeField] float fireRate = 0.1f;  
+    [SerializeField] bool isAutomatic = false;
+    [SerializeField] float fireRate = 0.1f;
 
-    private bool isShooting = false;  
+    public GameObject bullet;
+    public GameObject bulletPoint;
+    public float bulletSpeed = 80f;
+
+    private bool isShooting = false;
+
+    // Optional LineRenderer to visualize the ray/bullet trail
+    [SerializeField] LineRenderer lineRenderer;
 
     void Update()
     {
@@ -46,16 +53,31 @@ public class WeaponShoot : MonoBehaviour
         muzzleFlash.SetActive(true);
         StartCoroutine(WaitFlash(0.2f));
 
+        float x = Screen.width / 2f;
+        float y = Screen.height / 2f;
+        var ray = Camera.main.ScreenPointToRay(new Vector3(x, y, 0));
+
         RaycastHit hit;
-        if (Physics.Raycast(camera.transform.position, camera.transform.TransformDirection(Vector3.forward), out hit, 15f, layerMask))
+
+        if (Physics.Raycast(ray, out hit, 100f, layerMask))
         {
             Destroy(hit.transform.gameObject);
         }
+
+        GameObject projectile = Instantiate(bullet, bulletPoint.transform.position, bulletPoint.transform.rotation);
+        Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
+
+        projectileRB.velocity = ray.direction * bulletSpeed;
+
+        Destroy(projectile, 3f );
+        
     }
 
-    IEnumerator WaitFlash(float waitime)
+    
+
+    IEnumerator WaitFlash(float waitTime)
     {
-        yield return new WaitForSeconds(waitime);
+        yield return new WaitForSeconds(waitTime);
         muzzleFlash.SetActive(false);
     }
 }

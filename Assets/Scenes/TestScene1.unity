@@ -414,6 +414,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &759600331 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1495652259195890564, guid: f570e875b4de25647b90612622b97788,
+    type: 3}
+  m_PrefabInstance: {fileID: 3218355216732833232}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,20 +1313,62 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1087968094872066710, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087968094872066710, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0434
+      objectReference: {fileID: 0}
+    - target: {fileID: 1087968094872066710, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.7171
+      objectReference: {fileID: 0}
     - target: {fileID: 2156712893298573098, guid: f570e875b4de25647b90612622b97788,
         type: 3}
       propertyPath: m_Name
       value: PlayerContainer
       objectReference: {fileID: 0}
-    - target: {fileID: 5747581068684310610, guid: f570e875b4de25647b90612622b97788,
+    - target: {fileID: 2781629354208367273, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4265426931668906317, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6152012165266093810, guid: ec0581e8aa214204b9f01884e77f846c,
+        type: 3}
+    - target: {fileID: 4265426931668906317, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4684320439016662518, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6152012165266093810, guid: ec0581e8aa214204b9f01884e77f846c,
+        type: 3}
+    - target: {fileID: 4684320439016662518, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: bulletPoint
+      value: 
+      objectReference: {fileID: 759600331}
+    - target: {fileID: 4684320439016662518, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397387461595678455, guid: f570e875b4de25647b90612622b97788,
         type: 3}
       propertyPath: m_IsActive
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9034413709596587820, guid: f570e875b4de25647b90612622b97788,
-        type: 3}
-      propertyPath: near clip plane
-      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

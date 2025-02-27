@@ -3518,6 +3518,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 914473806}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &798634498 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6903919543632414914, guid: f570e875b4de25647b90612622b97788,
+    type: 3}
+  m_PrefabInstance: {fileID: 1319505897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &826451845
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5686,10 +5692,21 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 0.1
       objectReference: {fileID: 0}
-    - target: {fileID: 3446132247591833517, guid: f570e875b4de25647b90612622b97788,
+    - target: {fileID: 4265426931668906317, guid: f570e875b4de25647b90612622b97788,
         type: 3}
-      propertyPath: wallMask.m_Bits
-      value: 256
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 5649216475670180008, guid: 218f9172d89a65e4086eb72dff56b317,
+        type: 3}
+    - target: {fileID: 4265426931668906317, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: bulletPoint
+      value: 
+      objectReference: {fileID: 798634498}
+    - target: {fileID: 4265426931668906317, guid: f570e875b4de25647b90612622b97788,
+        type: 3}
+      propertyPath: bulletSpeed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6337251203533889657, guid: f570e875b4de25647b90612622b97788,
         type: 3}

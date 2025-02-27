@@ -93,6 +93,7 @@ public class EnemyScript : MonoBehaviour
         canJump = true;
     }
 
+  
 
 
 }

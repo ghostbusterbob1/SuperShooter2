@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GRAPPLING_NODE_TAG
   - WallRun
+  - Bullet
   layers:
   - Default
   - TransparentFX

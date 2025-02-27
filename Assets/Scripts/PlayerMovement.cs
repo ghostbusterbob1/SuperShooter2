@@ -73,16 +73,34 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         moveDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
         if (isgrounded)
         {
+            
             rb.velocity = new Vector3(moveDir.x * moveSpeed, rb.velocity.y, moveDir.z * moveSpeed);
         }
+
+
         else
         {
-            rb.AddForce(moveDir.normalized * moveSpeed, ForceMode.Acceleration);
-            rb.drag = 1.2f;
+            float airControl = 0.3f; 
+
+            rb.AddForce(moveDir.normalized * moveSpeed * airControl, ForceMode.Acceleration);
+            rb.drag = 1.2f; 
+        }
+
+        if (!isgrounded)
+        {
+            float maxAirSpeed = moveSpeed * 1f; // Adjust as needed
+            Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+
+            if (horizontalVelocity.magnitude > maxAirSpeed)
+            {
+                rb.velocity = new Vector3(horizontalVelocity.normalized.x * maxAirSpeed, rb.velocity.y, horizontalVelocity.normalized.z * maxAirSpeed);
+            }
         }
     }
+
 
     private void Jump()
     {
@@ -94,7 +112,6 @@ public class PlayerMovement : MonoBehaviour
         isgrounded = Physics.Raycast(transform.position, Vector3.down, 1.2f, groundMask);
     }
 
-    // Detect when you hit a wall marked with the "WallRun" tag
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.tag == "WallRun")
