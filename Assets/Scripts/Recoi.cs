@@ -24,12 +24,22 @@ public class Recoi : MonoBehaviour
 
     [SerializeField] bool isAutomatic = false;  
     [SerializeField] float fireRate = 0.1f;  
-    private bool isShooting = false;  
+    private bool isShooting = false;
+
+    private float originalRecoilX;
+    private float originalRecoilY;
+    private float originalRecoilZ;
+    private float originalKickBackZ;
 
     void Start()
     {
         initialPosition = transform.localPosition;
         initialRotation = transform.localRotation;
+
+        originalRecoilX = recoilX;
+        originalRecoilY = recoilY;
+        originalRecoilZ = recoilZ;
+        originalKickBackZ = kickBackZ;
     }
 
     void Update()
@@ -61,6 +71,20 @@ public class Recoi : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse1))
         {
             gun.transform.position = Vector3.Lerp(gun.transform.position, ADSTarget.transform.position, Time.deltaTime * 10f);
+
+            // Reduce recoil temporarily without permanently modifying values
+            recoilX = originalRecoilX / 2;
+            recoilY = originalRecoilY / 2;
+            recoilZ = originalRecoilZ / 2;
+            kickBackZ = originalKickBackZ / 2;
+        }
+        else
+        {
+            // Reset recoil values when not ADS
+            recoilX = originalRecoilX;
+            recoilY = originalRecoilY;
+            recoilZ = originalRecoilZ;
+            kickBackZ = originalKickBackZ;
         }
     }
 

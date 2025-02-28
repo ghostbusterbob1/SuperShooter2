@@ -1,10 +1,11 @@
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpForce;
-    public float slowDescentRate = 1.0f; // Controls how fast you descend while wall-running
+    public float slowDescentRate = 1.0f;
     public Transform orientation;
 
     private float horizontalInput;
@@ -13,10 +14,19 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody rb;
     public Camera camera;
     private float targetFOV;
-    private float fovSmoothSpeed = 10f; // Adjust speed as needed
+    private float fovSmoothSpeed = 10f;
+    private float targetRotationCameraRight = 30f;
+    private float targetRotationLeft = -30f;
     bool wallruning = false;
 
+    public ParticleSystem runParticle;
+
+    private bool wallRight = false;
+    private bool wallLeft = false;
+
+
     public LayerMask groundMask;
+    public LayerMask wallRunMask;
     public bool isgrounded;
     Transform t;
 
@@ -29,23 +39,30 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // Adjust move speed and FOV based on input
         if (Input.GetKey(KeyCode.LeftShift))
         {
             moveSpeed = 10f;
             targetFOV = 80f;
+
         }
         else
         {
             moveSpeed = 7f;
             targetFOV = 60f;
+
+
         }
+
+        
+
+        CheckWall();
 
         MInput();
         Camera.main.fieldOfView = Mathf.Lerp(Camera.main.fieldOfView, targetFOV, Time.deltaTime * fovSmoothSpeed);
         MovePlayer();
         IsGrounded();
 
+        // Jump from ground
         if (Input.GetKeyDown(KeyCode.Space) && isgrounded)
         {
             Jump();
@@ -57,8 +74,22 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(rb.velocity.x,
                                       Mathf.Lerp(rb.velocity.y, -slowDescentRate, Time.deltaTime * 5f),
                                       rb.velocity.z);
-        }
-        else
+
+
+            if (wallLeft)
+            {
+                Camera.main.transform.Rotate(0, 0, targetRotationLeft);
+            }
+            if (wallRight)
+            {
+                Camera.main.transform.Rotate(0, 0, -targetRotationLeft);
+            }
+
+
+
+
+            }
+            else
         {
             rb.useGravity = true;
         }
@@ -73,34 +104,21 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         moveDir = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
         if (isgrounded)
         {
-            
             rb.velocity = new Vector3(moveDir.x * moveSpeed, rb.velocity.y, moveDir.z * moveSpeed);
         }
-
-
         else
         {
-            float airControl = 0.3f; 
-
-            rb.AddForce(moveDir.normalized * moveSpeed * airControl, ForceMode.Acceleration);
-            rb.drag = 1.2f; 
+            rb.AddForce(moveDir.normalized * moveSpeed, ForceMode.Acceleration);
+            rb.drag = 1.2f;
         }
 
         if (!isgrounded)
         {
-            float maxAirSpeed = moveSpeed * 1f; 
-            Vector3 horizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-
-            if (horizontalVelocity.magnitude > maxAirSpeed)
-            {
-                rb.velocity = new Vector3(horizontalVelocity.normalized.x * maxAirSpeed, rb.velocity.y, horizontalVelocity.normalized.z * maxAirSpeed);
-            }
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, moveSpeed);
         }
     }
-
 
     private void Jump()
     {
@@ -110,6 +128,13 @@ public class PlayerMovement : MonoBehaviour
     private void IsGrounded()
     {
         isgrounded = Physics.Raycast(transform.position, Vector3.down, 1.2f, groundMask);
+    }
+
+
+    private void CheckWall()
+    {
+        wallRight = Physics.Raycast(transform.position, orientation.right, 4f, wallRunMask);
+        wallLeft = Physics.Raycast(transform.position, -orientation.right, 4f, wallRunMask);
     }
 
     private void OnCollisionEnter(Collision collision)

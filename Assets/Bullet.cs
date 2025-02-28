@@ -6,12 +6,11 @@ public class Bullet : MonoBehaviour
 {
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        
+        if(collision.collider.tag == "Player")
         {
-            Destroy(collision.gameObject); 
-            Destroy(gameObject); 
-        }
-        else if (collision.collider)
+            Destroy(gameObject);
+        }else if (collision.collider)
         {
             Destroy(gameObject);
         }

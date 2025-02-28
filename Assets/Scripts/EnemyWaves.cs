@@ -28,7 +28,7 @@ public class EnemyWaves : MonoBehaviour
         enemies.Clear();
         waveCount.text = "Wave: " + waveNumber.ToString(); 
 
-        int spawnIndex = 0; // Track which spawn point to use
+        int spawnIndex = 0; 
 
         for (int i = 0; i < enemiesPerWave; i++)
         {

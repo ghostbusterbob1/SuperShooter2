@@ -12,6 +12,7 @@ public class WeaponShoot : MonoBehaviour
     public GameObject bullet;
     public GameObject bulletPoint;
     public float bulletSpeed = 80f;
+    public float bulletRange;
 
     private bool isShooting = false;
 
@@ -59,7 +60,7 @@ public class WeaponShoot : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 100f, layerMask))
+        if (Physics.Raycast(ray, out hit, bulletRange, layerMask))
         {
             Destroy(hit.transform.gameObject);
         }
