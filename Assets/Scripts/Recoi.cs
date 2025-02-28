@@ -10,10 +10,12 @@ public class Recoi : MonoBehaviour
     [SerializeField] GameObject gun;
     [SerializeField] GameObject ADSTarget;
 
-    [SerializeField] float recoilX;
-    [SerializeField] float recoilY;
-    [SerializeField] float recoilZ;
-    [SerializeField] float kickBackZ;
+    public WeaponShoot weaponShoot;
+
+    public float recoilX;
+    public float recoilY;
+    public float recoilZ;
+    public float kickBackZ;
 
     public float snappiness, returnAmount;
 
@@ -30,6 +32,8 @@ public class Recoi : MonoBehaviour
     private float originalRecoilY;
     private float originalRecoilZ;
     private float originalKickBackZ;
+
+    
 
     void Start()
     {
@@ -67,12 +71,10 @@ public class Recoi : MonoBehaviour
             }
         }
 
-        // ADS Movement
         if (Input.GetKey(KeyCode.Mouse1))
         {
             gun.transform.position = Vector3.Lerp(gun.transform.position, ADSTarget.transform.position, Time.deltaTime * 10f);
 
-            // Reduce recoil temporarily without permanently modifying values
             recoilX = originalRecoilX / 2;
             recoilY = originalRecoilY / 2;
             recoilZ = originalRecoilZ / 2;
@@ -80,12 +82,22 @@ public class Recoi : MonoBehaviour
         }
         else
         {
-            // Reset recoil values when not ADS
             recoilX = originalRecoilX;
             recoilY = originalRecoilY;
             recoilZ = originalRecoilZ;
             kickBackZ = originalKickBackZ;
         }
+
+        if(weaponShoot.bulletCount == 0)
+        {
+            recoilX = 0;
+            recoilY = 0;
+            recoilZ= 0;
+            kickBackZ= 0;   
+
+        }
+
+
     }
 
     IEnumerator AutomaticFire()

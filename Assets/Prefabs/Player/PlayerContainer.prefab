@@ -912,9 +912,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4732315501252746317}
   - {fileID: 3301566805580171283}
   - {fileID: 4938287336954815208}
-  - {fileID: 4732315501252746317}
   m_Father: {fileID: 4282108913341644925}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3457456821090069869
@@ -1008,6 +1008,7 @@ MonoBehaviour:
   cam: {fileID: 4282108913341644925}
   gun: {fileID: 2781629354208367273}
   ADSTarget: {fileID: 4870268915060742212}
+  weaponShoot: {fileID: 0}
   recoilX: -30
   recoilY: 20
   recoilZ: 30
@@ -1034,9 +1035,11 @@ MonoBehaviour:
   fireRate: 0.1
   bullet: {fileID: 6152012165266093810, guid: ec0581e8aa214204b9f01884e77f846c, type: 3}
   bulletPoint: {fileID: 1495652259195890564}
+  BulletCounter: {fileID: 0}
   bulletSpeed: 50
   bulletRange: 100
-  lineRenderer: {fileID: 0}
+  bulletCount: 30
+  initialBullet: 0
 --- !u!1 &2787944368658814481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2125,6 +2128,7 @@ MonoBehaviour:
   cam: {fileID: 4282108913341644925}
   gun: {fileID: 5747581068684310610}
   ADSTarget: {fileID: 4694284958760668400}
+  weaponShoot: {fileID: 0}
   recoilX: -100
   recoilY: 20
   recoilZ: 30
@@ -2151,9 +2155,11 @@ MonoBehaviour:
   fireRate: 0.1
   bullet: {fileID: 0}
   bulletPoint: {fileID: 0}
+  BulletCounter: {fileID: 0}
   bulletSpeed: 0
   bulletRange: 0
-  lineRenderer: {fileID: 0}
+  bulletCount: 30
+  initialBullet: 0
 --- !u!114 &2860183296254301391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3411,6 +3417,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 868489647305027864}
     m_Modifications:
+    - target: {fileID: 3756826040847949, guid: 49b7d7aff8e7d1448aa9c0bb61c78688, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 30330199720702785, guid: 49b7d7aff8e7d1448aa9c0bb61c78688,
         type: 3}
       propertyPath: m_Name
@@ -3684,9 +3694,11 @@ MonoBehaviour:
   fireRate: 0.1
   bullet: {fileID: 6152012165266093810, guid: ec0581e8aa214204b9f01884e77f846c, type: 3}
   bulletPoint: {fileID: 6903919543632414914}
+  BulletCounter: {fileID: 0}
   bulletSpeed: 50
   bulletRange: 150
-  lineRenderer: {fileID: 0}
+  bulletCount: 30
+  initialBullet: 0
 --- !u!114 &6472679205131562152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3722,6 +3734,7 @@ MonoBehaviour:
   cam: {fileID: 4282108913341644925}
   gun: {fileID: 5397387461595678455}
   ADSTarget: {fileID: 7508110775360176826}
+  weaponShoot: {fileID: 0}
   recoilX: -10
   recoilY: 20
   recoilZ: 30

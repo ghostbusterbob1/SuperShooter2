@@ -1,23 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponShoot : MonoBehaviour
 {
     [SerializeField] GameObject muzzleFlash;
-    [SerializeField] Camera camera;
     [SerializeField] bool isAutomatic = false;
     [SerializeField] float fireRate = 0.1f;
 
+
     public GameObject bullet;
     public GameObject bulletPoint;
+    public Text BulletCounter;
     public float bulletSpeed = 80f;
     public float bulletRange;
+    public int bulletCount = 30;
+    public int initialBullet;
 
     private bool isShooting = false;
 
-    // Optional LineRenderer to visualize the ray/bullet trail
-    [SerializeField] LineRenderer lineRenderer;
+
+    private void Start()
+    {
+       initialBullet = bulletCount;
+    }
 
     void Update()
     {
@@ -35,17 +43,39 @@ public class WeaponShoot : MonoBehaviour
                 Shoot();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();   
+        }
+
+
+        
     }
 
     IEnumerator AutomaticFire()
     {
         isShooting = true;
-        while (Input.GetKey(KeyCode.Mouse0))
+        while (Input.GetKey(KeyCode.Mouse0) && bulletCount > 0)
         {
             Shoot();
+            bulletCount--;
+            BulletCounter.text = bulletCount.ToString();    
+
+            Debug.Log(bulletCount.ToString());  
             yield return new WaitForSeconds(fireRate);
+
+
         }
         isShooting = false;
+    }
+
+    void Reload()
+    {
+       
+            bulletCount = initialBullet;
+            BulletCounter.text = bulletCount.ToString();
+        
     }
 
     void Shoot()
