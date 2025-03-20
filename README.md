@@ -12,7 +12,7 @@ Procedural Recoil Script: https://github.com/GitPushh/SuperShooter2/blob/main/As
 
 Weapon Sway Script: https://github.com/GitPushh/SuperShooter2/blob/main/Assets/Scripts/WeaponSway.cs
 
-![Super Shooter Gameplay](ezgif-2813284bf95778.gif)
+![Super Shooter Gameplay](ezgif-2813284bf95778 (2).gif)
 
 
 
