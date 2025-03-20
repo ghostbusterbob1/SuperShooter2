@@ -1013,7 +1013,7 @@ MonoBehaviour:
   recoilY: 20
   recoilZ: 30
   kickBackZ: 1
-  snappiness: 17.1
+  snappiness: 15
   returnAmount: 20
   isAutomatic: 0
   fireRate: 0.1
@@ -1030,6 +1030,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 6645863517040655064}
+  camera: {fileID: 9034413709596587820}
   isAutomatic: 0
   fireRate: 0.1
   bullet: {fileID: 6152012165266093810, guid: ec0581e8aa214204b9f01884e77f846c, type: 3}
@@ -1746,85 +1747,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3301566805580171283}
   m_LocalEulerAnglesHint: {x: 1.448, y: 0, z: 0}
---- !u!1 &4890401434711764507
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8265016304933924176}
-  - component: {fileID: 2600857473322751609}
-  - component: {fileID: 8930285692342813381}
-  m_Layer: 5
-  m_Name: WaveCount (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8265016304933924176
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4890401434711764507}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2560253069418909482}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -996.4995, y: -560.97}
-  m_SizeDelta: {x: 567.0009, y: 318.0547}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2600857473322751609
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4890401434711764507}
-  m_CullTransparentMesh: 1
---- !u!114 &8930285692342813381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4890401434711764507}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.6792453, g: 0.6792453, b: 0.6792453, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: b6951399deb62d54992eb8642fdff3f3, type: 3}
-    m_FontSize: 89
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 227
-    m_Alignment: 4
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: 20
 --- !u!1 &4893638078203108977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,6 +2150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 4893638078203108977}
+  camera: {fileID: 9034413709596587820}
   isAutomatic: 0
   fireRate: 0.1
   bullet: {fileID: 0}
@@ -3603,18 +3526,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1640345085049163531, guid: 49b7d7aff8e7d1448aa9c0bb61c78688,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 1354455720837201912, guid: 49b7d7aff8e7d1448aa9c0bb61c78688,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 8265016304933924176}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49b7d7aff8e7d1448aa9c0bb61c78688, type: 3}
 --- !u!224 &2560253069418909482 stripped
@@ -3775,11 +3689,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 2055065140558113379}
+  camera: {fileID: 9034413709596587820}
   isAutomatic: 1
   fireRate: 0.1
   bullet: {fileID: 6152012165266093810, guid: ec0581e8aa214204b9f01884e77f846c, type: 3}
   bulletPoint: {fileID: 6903919543632414914}
-  BulletCounter: {fileID: 8930285692342813381}
+  BulletCounter: {fileID: 0}
   bulletSpeed: 50
   bulletRange: 150
   bulletCount: 30
@@ -3819,12 +3734,12 @@ MonoBehaviour:
   cam: {fileID: 4282108913341644925}
   gun: {fileID: 5397387461595678455}
   ADSTarget: {fileID: 7508110775360176826}
-  weaponShoot: {fileID: 4265426931668906317}
+  weaponShoot: {fileID: 0}
   recoilX: -10
   recoilY: 20
   recoilZ: 30
-  kickBackZ: 1.97
-  snappiness: 53.2
+  kickBackZ: 0.5
+  snappiness: 20
   returnAmount: 20
   isAutomatic: 1
   fireRate: 0.1
