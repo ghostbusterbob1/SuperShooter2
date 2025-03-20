@@ -9,6 +9,9 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     NavMeshAgent agent;
     GameObject player;
+
+    [SerializeField] Animator anim;
+    [SerializeField] GameObject raycastpoint;
     public GameObject projectilePrefab; 
     public float fireRate = 2f; 
     public float projectileSpeed = 50f;
@@ -29,13 +32,14 @@ public class EnemyScript : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindWithTag("Player");
         
-        firePoint = transform.Find("firePoint"); // Finds child named "FirePoint"
+        firePoint = transform.Find("firePoint"); 
         
     }
 
-    // Update is called once per frame
     void Update()
     {
+        Animations();
+
         agent.SetDestination(player.transform.position);
         transform.LookAt(player.transform.position);
 
@@ -85,6 +89,21 @@ public class EnemyScript : MonoBehaviour
 
         StartCoroutine(ResetJump());
     }
+
+
+   
+
+    void Animations(){
+        
+        if (rb.velocity.magnitude > 0) {
+            anim.Play("Zombie Walk");
+        } else {
+            anim.Play("Zombie Idle");
+        }
+    }
+
+        
+    
 
     IEnumerator ResetJump()
     {
