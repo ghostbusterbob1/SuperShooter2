@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 16d6c7890aa84dd082b040f10d3d7aab
+timeCreated: 1707674482
+AssetOrigin:
+  serializedVersion: 1
+  productId: 284380
+  packageName: Game Console - Commands and Debug
+  packageVersion: 1.2
+  assetPath: Assets/Packs/YagirConsole/ShellScripts/Base/Shell/ConsoleService.HintsSolver.cs
+  uploadId: 678792

@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "SuperShooter2.sln"
+    "dotnet.defaultSolution": "SuperShooter1.sln"
 }

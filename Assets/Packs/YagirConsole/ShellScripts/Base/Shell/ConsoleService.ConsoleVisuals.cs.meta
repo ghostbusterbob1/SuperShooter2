@@ -1,0 +1,10 @@
+﻿fileFormatVersion: 2
+guid: 9261c458552a44a892b0d1114ad71795
+timeCreated: 1707680376
+AssetOrigin:
+  serializedVersion: 1
+  productId: 284380
+  packageName: Game Console - Commands and Debug
+  packageVersion: 1.2
+  assetPath: Assets/Packs/YagirConsole/ShellScripts/Base/Shell/ConsoleService.ConsoleVisuals.cs
+  uploadId: 678792
