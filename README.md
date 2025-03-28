@@ -7,7 +7,7 @@ De zombies verschillen in hp omdat het allemaal verschillende zijn: Melee, Brute
 (Tutorial 3 )Movement Script: https://github.com/GitPushh/SuperShooter2/blob/main/Assets/Scripts/PlayerMovement.cs
 (Tutorial 4)Pickup: https://github.com/ghostbusterbob1/SuperShooter2/blob/main/Assets/Pickup.cs
 
-Shooting Script: https://github.com/GitPushh/SuperShooter2/blob/main/Assets/Scripts/WeaponShoot.cs
+Shooting Script(Tutorial5): https://github.com/GitPushh/SuperShooter2/blob/main/Assets/Scripts/WeaponShoot.cs
 
 Procedural Recoil Script: https://github.com/GitPushh/SuperShooter2/blob/main/Assets/Scripts/Recoi.cs
 
